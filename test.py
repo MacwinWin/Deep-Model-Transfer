@@ -18,18 +18,24 @@ import math
 
 slim = tf.contrib.slim
 
-#State your log directory where you can retrieve your model
+tf.app.flags.DEFINE_string(
+    'dataset_dir', '', 'The directory where the dataset files are stored.')
 
-log_dir = '/../102_inception_resnet_v2_150'
+tf.app.flags.DEFINE_string(
+    'train_dir', '', 'Directory where the results are saved to.')
 
-#Create a new evaluation log directory to visualize the validation process
+tf.app.flags.DEFINE_string(
+    'checkpoint_path', '',
+    'The directory where the model was written to or an absolute path to a '
+    'checkpoint file.')
 
-log_eval = '/../validation'
+tf.app.flags.DEFINE_string(
+    'labels_file', '', 'The label of the dataset to load.')
 
-#State the dataset directory where the validation set is found
+tf.app.flags.DEFINE_string(
+    'log_test', '', 'The directory where the test result are stored.')
 
-dataset_dir = '/../Flower_102_test'
-
+FLAGS = tf.app.flags.FLAGS
 
 #State the batch_size to evaluate each time, which can be a lot more than the training batch
 batch_size = 1
@@ -44,7 +50,7 @@ image_size = 299
 num_classes = 102
 
 #Get the latest checkpoint file
-checkpoint_file = tf.train.latest_checkpoint(log_dir)
+checkpoint_file = tf.train.latest_checkpoint(FLAGS.train_dir)
 
 #State the labels file and read it
 
@@ -177,14 +183,14 @@ def load_batch(dataset, batch_size, height=image_size, width=image_size, is_trai
 
 def run():
     #Create log_dir for evaluation information
-    if not os.path.exists(log_eval):
-        os.makedirs(log_eval)
+    if not os.path.exists(FLAGS.log_test):
+        os.makedirs(FLAGS.log_test)
 
     #Just construct the graph from scratch again
     with tf.Graph().as_default() as graph:
         tf.logging.set_verbosity(tf.logging.INFO)
         #Get the dataset first and load one batch of validation images and labels tensors. Set is_training as False so as to use the evaluation preprocessing
-        dataset = get_split('validation', dataset_dir)
+        dataset = get_split('validation', FLAGS.dataset_dir)
         images, raw_images, labels = load_batch(dataset, batch_size = batch_size, is_training = False)
 
         #Create some information about the training steps
