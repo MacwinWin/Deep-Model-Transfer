@@ -54,9 +54,7 @@ checkpoint_file = tf.train.latest_checkpoint(FLAGS.train_dir)
 
 #State the labels file and read it
 
-labels_file = '/../Flower_102_test/labels.txt'
-
-labels = open(labels_file, 'r')
+labels = open(FLAGS.labels_file, 'r')
 
 #Create a dictionary to refer each label to their string name
 labels_to_name = {}
