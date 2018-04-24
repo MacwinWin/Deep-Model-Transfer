@@ -95,9 +95,9 @@ If the dataset doesn't have validation set, we can extract some images from test
        --dataset_name=$DATASET_NAME \
        --dataset_dir=$DATASET_DIR
   ```
-3. train and evaluate
+3. train and evaluate  
 
-  - Edit [./train.py](https://github.com/MacwinWin/Deep-Model-Transfer/blob/master/train.py) to specify "image_size", "num_classes".
+  - Edit [./train.py](https://github.com/MacwinWin/Deep-Model-Transfer/blob/master/train.py) to specify "image_size", "num_classes".
   - Edit [./train.py](https://github.com/MacwinWin/Deep-Model-Transfer/blob/master/train.py) line [162](https://github.com/MacwinWin/Deep-Model-Transfer/blob/f399fd6011bc35e42e8b6559ea3846ed0d6a57c0/train.py#L162) to selecet image preprocessing method.
   - Edit [./train.py](https://github.com/MacwinWin/Deep-Model-Transfer/blob/master/train.py) line [203](https://github.com/MacwinWin/Deep-Model-Transfer/blob/f399fd6011bc35e42e8b6559ea3846ed0d6a57c0/train.py#L203) to create the model inference.
   - Edit [./train.py](https://github.com/MacwinWin/Deep-Model-Transfer/blob/master/train.py) line [219](https://github.com/MacwinWin/Deep-Model-Transfer/blob/f399fd6011bc35e42e8b6559ea3846ed0d6a57c0/train.py#L219) to define the scopes that you want to exclude for restoration
