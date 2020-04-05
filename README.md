@@ -149,3 +149,17 @@ Through tensorboard, you can visualization the training and testing process.
 <p align="center">
   <img src="https://s31.postimg.cc/xmq2yob3f/Screenshot_from_2018-04-17_18-20-36.png" width="400px" alt=""><img src="https://s31.postimg.cc/k5t4ftg7f/Screenshot_from_2018-04-17_18-20-56.png" width="400px" alt="">
 </p>
+
+## Deploy
+
+Deploy methods support html and api. Through html method, you can upload image file and get result in web browser. If you want to get result in json format, you can use api method.
+Because I'm not good at front-end and back-end skill, so the code not looks professional.
+
+The deployment repository: https://github.com/MacwinWin/Deep-Model-Transfer-Deployment
+
+<p align="center"> 
+<img src="https://github.com/MacwinWin/Deep-Model-Transfer-Deployment/blob/master/Peek%202020-04-05%2016-02.gif" width = 100% height = 100%>
+</p> 
+<p align="center"> 
+<img src="https://github.com/MacwinWin/Deep-Model-Transfer-Deployment/blob/master/Peek%202020-04-05%2016-08.gif" width = 100% height = 100%>
+</p> 
